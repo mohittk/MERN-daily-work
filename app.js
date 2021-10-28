@@ -3,16 +3,22 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const app = express();
 
-dotenv.config({path: './config.env'});
+
 const DB = process.env.DATABASE;
 const PORT = process.env.PORT;
 
- mongoose.connect(DB).then(()=>{
+dotenv.config({path: './config.env'});
+require('./day1(connect)/connect');
+const User = require('./day2(model)/userSchema');
+
+
+mongoose.connect(DB).then(()=>{
     console.log('connection successful');
-}). catch(err => console.log(err));
+}).catch(err => console.log('no connection'));
 
 
-//middlewareb 
+ 
+//middleware
 
 const middleware = (req, res, next) => {
     console.log('hello middleware');
