@@ -13,7 +13,7 @@ const userSchema =  new mongoose.Schema({
         type: Number,
         required: true,
     },
-    work: {
+    college: {
         type: String,
         required: true,
     },
