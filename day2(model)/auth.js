@@ -7,9 +7,17 @@ router.get('/',(req, res) => {
 })
 
 router.post('/register',(req, res) => {
-    console.log(req.body);
-    res.json({message: res.body});
+    const {name, email, phone, college, pass, cpass} = req.body;
+    console.log(name);
+    console.log(email);
+    console.log(phone);
+    console.log(college);
+    console.log(pass);
+    console.log(cpass);
+    res.send("my registerrrrrr page");
+    // res.json({message: res.body});
 })
+
 
 
 
