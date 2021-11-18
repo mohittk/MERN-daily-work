@@ -13,12 +13,13 @@ require('./day1(connect)/connect');
 app.use(express.json());
 app.use(require('./day2(model)/auth'));
 
-// const User = (require('./day2(model)/userSchema')); 
+const User = (require('./day2(model)/userSchema')); 
 
-
-mongoose.connect(DB).then(()=>{
+mongoose.connect(DB, { useNewUrlParser: true }).then(()=>{ 
     console.log('connection successful');
+    
 }).catch(err => console.log('no connection'));
+
 
 
  
