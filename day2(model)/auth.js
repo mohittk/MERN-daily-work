@@ -59,13 +59,21 @@ router.post('/register',async(req, res) => {
         if(userHai){
             return res.status(422).json({error: "email registered hai"});
         }
-        
-        const user = new User({name, email, phone,college, pass, cpass});
-        const userRegister = await user.save();
-        if(userRegister){
-            res.status(201).json({message: "user registered successfully"});
+        else if(pass !=  cpass){
+            return res.status(422).json({error:"aram se bharo bhai password match nhi ho raha"});
+        }
+        else{
+            const user = new User({name, email, phone,college, pass, cpass});
+            await user.save();
+        res.status(201).json({message: "user registered successfully"});
 
         }
+        
+        
+      
+
+        
+ 
     }
     catch(err){
         console.log(err);
@@ -82,13 +90,13 @@ router.post('/signin',async(req, res)=>{
             return res.status(403).json({error:"are chacha thik se fill karo"})
         }
 
-        const userLogin = await User.findOne({email: email});
+        const userLogin = await User.findOne({email: email}); ///isme ye check kiya ki email jo hai wo databse se match hua ya nhi
         console.log(userLogin);
         if(!userLogin){
-            res.status(400).json({error: "kuch to gadbad hai"})
+            res.status(400).json({error: "kuch to gadbad hai"}) //matalb kuch to lafda hai
 
         }else{
-            res.json({message:"user signed in sucksesfully"})
+            res.json({message:"user signed in sucksesfully"}) 
 
         }
         
