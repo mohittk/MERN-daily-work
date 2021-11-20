@@ -32,17 +32,17 @@ const userSchema =  new mongoose.Schema({
 
 
 //password hashing 
-
 userSchema.pre('save', async function (next){
     console.log('hey! from inside')
     if(this.isModified('pass')){
         var salt = bcrypt.genSaltSync(12);
-        this.pass=bcrypt.hashSync(this.pass,salt);
-        this.cpass=bcrypt.hashSync(this.cpass,salt);
+        this.pass=  bcrypt.hashSync(this.pass,salt);
+        this.cpass= bcrypt.hashSync(this.cpass,salt);
       
     }
     next();
 })
+
 
 const User = mongoose.model('REGISTRATION', userSchema);
 

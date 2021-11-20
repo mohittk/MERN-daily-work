@@ -91,19 +91,27 @@ router.post('/signin',async(req, res)=>{
         }
 
         const userLogin = await User.findOne({email: email}); ///isme ye check kiya ki email jo hai wo databse se match hua ya nhi
-        console.log(userLogin);
-        if(!userLogin){
-            res.status(400).json({error: "kuch to gadbad hai"}) //matalb kuch to lafda hai
+        if(userLogin){
+            const isMatching = await bcrypt.compare(pass, userLogin.pass)
 
-        }else{
-            res.json({message:"user signed in sucksesfully"}) 
-
-        }
         
+        if(!isMatching){
+            res.status(400).json({error: "invalid credentials"});
+        
+        }
+        else{
+            res.json({message: "user signin successful"})
+        }
+    }
+    else{
+        res.status(400).json({error: "invalid credentials"})
+    }
+         console.log(userLogin);
+      
+       
 
-
-
-
+       
+        
     }
     catch(err){console.log(err);}
 
