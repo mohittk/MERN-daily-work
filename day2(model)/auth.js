@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 require("../day1(connect)/connect");
 const User = require("./userSchema");
 
@@ -85,6 +87,7 @@ router.post('/register',async(req, res) => {
 //login route 
 router.post('/signin',async(req, res)=>{
     try{
+        let token;
         const {email, pass} = req.body;
         if(!email || !pass){
             return res.status(403).json({error:"are chacha thik se fill karo"})
@@ -94,12 +97,12 @@ router.post('/signin',async(req, res)=>{
         if(userLogin){
             const isMatching = await bcrypt.compare(pass, userLogin.pass)
 
-        
-        if(!isMatching){
+            token  = userLogin.generateAuthToken();
+            console.log(token);
+            if(!isMatching){
             res.status(400).json({error: "invalid credentials"});
-        
-        }
-        else{
+            }
+            else{
             res.json({message: "user signin successful"})
         }
     }
@@ -107,9 +110,6 @@ router.post('/signin',async(req, res)=>{
         res.status(400).json({error: "invalid credentials"})
     }
          console.log(userLogin);
-      
-       
-
        
         
     }
