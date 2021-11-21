@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-require("../day1(connect)/connect");
+require("../connection/connect");
 const User = require("./userSchema");
 
 router.get('/',(req, res) => {

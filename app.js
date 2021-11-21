@@ -8,12 +8,12 @@ const DB = process.env.DATABASE;
 
 
 dotenv.config({path: './config.env'});
-require('./day1(connect)/connect');
+require('./connection/connect');
 
 app.use(express.json());
-app.use(require('./day2(model)/auth'));
+app.use(require('./model/auth'));
 
-const User = (require('./day2(model)/userSchema')); 
+const User = (require('./model/userSchema')); 
 
 mongoose.connect(DB, { useNewUrlParser: true }).then(()=>{ 
     console.log('connection successful');
