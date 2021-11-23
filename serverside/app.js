@@ -8,6 +8,7 @@ const DB = process.env.DATABASE;
 
 
 dotenv.config({path: './config.env'});
+
 require('./connection/connect');
 
 app.use(express.json());
