@@ -17,7 +17,7 @@ const Signup = () =>{
                 </input>
                 <label htmlFor="name">
                 </label>
-                <input type="text" name="phoneno" id="phoneno" autoComplete="off" placeholder="apni gf ka number dalo">
+                <input type="text" name="phoneno" id="phoneno" autoComplete="off" placeholder="apna number dalo">
                 </input>
                 <label htmlFor="name">
                 </label>
@@ -25,7 +25,7 @@ const Signup = () =>{
                 </input>
                 <label htmlFor="name">
                 </label>
-                <input type="text" name="cpass" id="cpass" autoComplete="off" placeholder="apni passworddalo">
+                <input type="text" name="cpass" id="cpass" autoComplete="off" placeholder="apni password confirm karo">
                 </input>
             </div>
             <div className="form-group form-button">
