@@ -54,7 +54,7 @@ router.post('/register',async(req, res) => {
 //part 2 (form filling err)
     const {name, email, phone, college, pass, cpass} = req.body;
     console.log(name, email, phone, college, pass, cpass);
-    console.log(req.body);
+   
     if(!name || !email || !phone || !college || !pass || !cpass){
         return res.status(422).json({error: "are chacha pura form to fill karo"}); //to change the error
     }
