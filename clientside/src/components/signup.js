@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Signup = () => {
+
+   const history = useNavigate();
   
     const [user, setUser] = useState({
     name: "",
@@ -19,7 +21,7 @@ const Signup = () => {
       console.log(e);
       name = e.target.name;
       value = e.target.value;
-      setUser({...user, [name]:value});
+      setUser({...user, [name]:value,});
       
 
       
@@ -31,7 +33,7 @@ const Signup = () => {
       const {name, email, phone, college, pass, cpass} = user;
       const res = await fetch('http://localhost:5000/register',{
           method: 'POST',
-          Headers: {
+          headers: {
               "Content-Type": "application/json"
           },
           body: JSON.stringify(
@@ -47,7 +49,7 @@ const Signup = () => {
         }else{
             window.alert("Registration Successful!");
             console.log("Registration Successful!");
-            // navigate.push('http:localhost:5000/login')
+           history('/login');
             
             
         }
