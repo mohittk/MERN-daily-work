@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const app = express();
@@ -12,6 +13,7 @@ dotenv.config({path: './config.env'});
 require('./connection/connect');
 
 app.use(express.json());
+app.use(cors());
 app.use(require('./model/auth'));
 
 const User = (require('./model/userSchema')); 
@@ -27,9 +29,10 @@ mongoose.connect(DB, { useNewUrlParser: true }).then(()=>{
 //middleware
 
 const middleware = (req, res, next) => {
+
     console.log('hello middleware');
 }
- 
+
 middleware();
 
 app.get('/',(req,res) => {
@@ -44,3 +47,4 @@ app.get('/about',middleware,(req,res) => {
 app.listen(5000, ()=>{
     console.log('listening on port 5000'); 
 })
+
