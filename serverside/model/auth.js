@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const path = require('path');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 require("../connection/connect");
@@ -7,6 +8,8 @@ const User = require("./userSchema");
 
 router.get('/',(req, res) => {
     res.send('hello from the server router');
+
+ 
 
 })
 

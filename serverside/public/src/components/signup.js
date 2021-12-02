@@ -63,8 +63,8 @@ const Signup = () => {
 
 
   return (
-    <>
-      <div className="signup form">
+
+      /* <div className="signup form">
         <h2 className="form-title"> Sign Up </h2>
         <div className="form-group">
 
@@ -149,8 +149,111 @@ const Signup = () => {
           {" "}
           I'hve got an account{" "}
         </NavLink>
+      </div> */
+    
+   <>
+    <form class="col s12" style={{ margin: "5rem"}}>
+      <div class="row">
+        <div class="input-field col s20">
+       
+        <input
+            type="text"
+            name="name"
+            id="name"
+           
+            value={user.name}
+            onChange={handleInput}
+          />
+          
+          <label for="first_name"> Name</label>
+        </div>
+        </div>
+        <div class="row">
+        <div class="input-field col s12">
+        <input
+            type="text"
+            name="email"
+            id="email"
+           
+            value={user.email}
+            onChange={handleInput}
+          />
+          <label for="email">Email</label>
+        </div>
       </div>
+      <div class="row">
+        <div class="input-field col s6">
+        <input
+            type="text"
+            name="phone"
+            id="phone"
+          
+            value={user.phone}
+            onChange={handleInput}
+          />
+          <label for="mobile_no">Phone no.</label>
+        </div>
+        </div>
+      
+     
+      
+      <div class="row">
+        <div class="input-field col s12">
+        <input
+            type="password"
+            name="pass"
+            id="cpass"
+            value={user.pass}
+            onChange={handleInput}
+          />
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+        <input
+            type="password"
+            name="cpass"
+            id="cpass"
+            value={user.cpass}
+            onChange={handleInput}
+          />
+          <label for="password">Confirm Password</label>
+        </div>
+      </div>
+     
+    </form>
+    
+
+    <div className="col s12" style={{ margin: "5rem"}}> 
+          <button
+          style={{
+            width: "150px",
+            borderRadius: "3px",
+            letterSpacing: "1.5px",
+         
+          }}
+            type="submit"
+            name="signup"
+            id="signup"
+            className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+            placeholder=""
+            value="register"
+            onClick={PostingData}>
+          Sign IN</button>
+        </div>
+        <NavLink to="/login" className="signin">
+          {" "}
+          I'hve got an account{" "}
+        </NavLink>
+    
     </>
+   
+  
+        
+
+      
+  
   );
 };
 

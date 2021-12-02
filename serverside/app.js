@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
+// const indexRouter = require('')
 const mongoose = require('mongoose');
 const app = express();
 
@@ -43,6 +44,10 @@ app.get('/',(req,res) => {
 app.get('/about',middleware,(req,res) => {
     res.send(`hello to aboyt world`);
 })
+
+if(process.env.NODE_ENV == 'production'){
+    app.use(express.static("public/build"))
+}
 
 app.listen(5000, ()=>{
     console.log('listening on port 5000'); 
