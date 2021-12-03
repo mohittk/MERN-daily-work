@@ -3,3 +3,7 @@ input{
     flex-wrap: wrap;
     
 }
+
+.nav-link:hover{
+    color: yellow;
+}

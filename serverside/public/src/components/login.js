@@ -6,6 +6,7 @@ const Login = () => {
     const history = useNavigate();
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [cpass,setCpass] = useState("");
 
   const loginUser = async(e)=>{
       e.preventDefault();
@@ -13,7 +14,7 @@ const Login = () => {
           method: 'POST',
           headers: { "Content-Type": "application/json"},
           body: JSON.stringify({
-              email: email, pass: pass, cpass:pass
+              email: email, pass: pass, cpass:cpass
 
           })
       })
@@ -31,8 +32,7 @@ const Login = () => {
   
 
   return (
-    <>
-      <div className="signinform">
+      /* <div className="signinform">
         <h2 className="form-title"> Sign In </h2>
         <div className="form-group">
           <label htmlFor="email"></label>
@@ -79,7 +79,64 @@ const Login = () => {
             onClick={loginUser}
           />
         </div>
-      </div>
+      </div> */
+
+      <>
+      <form class="col s12" style={{margin: "5rem"}}>
+        <div class="row">
+          <div class="input-field col s20">
+            <input
+            type="text"
+            name="email"
+            id="email"
+            value={email}
+            onChange={(e)=> setEmail(e.target.value)}
+            />
+             <label for="email">Email</label>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12"> 
+          <input
+          type="password"
+          name="pass"
+          id="pass"
+          value={pass}
+          onChange={(e)=> setPass(e.target.value)}  
+          />
+           <label for="password">Password</label>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input
+            type="password"
+            name="cpass"
+            id="cpass"
+            value={cpass}
+            onChange={(e)=>setCpass(e.target.value)}
+            />
+               <label for="password"> Confirm Password</label>
+
+            </div>
+        </div>
+        <div className="form-group form-button">
+          <input
+            type="submit"
+            name="signup"
+            id="signup"
+            className="form-submit"
+            value="Sign In"
+            onClick={loginUser}
+          />
+        </div>
+      </form>
+      
+
+
     </>
   );
 };

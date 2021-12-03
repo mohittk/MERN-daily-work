@@ -182,6 +182,19 @@ const Signup = () => {
         </div>
       </div>
       <div class="row">
+        <div class="input-field col s12">
+        <input
+            type="text"
+            name="college"
+            id="college"
+           
+            value={user.college}
+            onChange={handleInput}
+          />
+          <label for="email">College</label>
+        </div>
+      </div>
+      <div class="row">
         <div class="input-field col s6">
         <input
             type="text"
